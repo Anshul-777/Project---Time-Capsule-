@@ -1,38 +1,214 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TIME CAPSULE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Vault - Secure Future Messaging</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⏳</span>
+                <span class="logo-text">TimeVault</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="create.html">Create Capsule</a></li>
+                <li><a href="capsules.html">My Capsules</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
 
-  <header>
-    <div class="logo">
-      <div class="logo-circle">TC</div>
-      <div class="title">TIME CAPSULE</div>
-    </div>
-    <div class="auth-buttons">
-      <a href="#">Sign Up</a>
-      <a href="#">Login</a>
-    </div>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title glitch" data-text="Secure Your Future">Secure Your Future</h1>
+            <p class="hero-subtitle">TimeVault lets you create encrypted time capsules that unlock precisely when you need them</p>
+            <div class="hero-buttons">
+                <a href="create.html" class="btn-primary pulse">Create Capsule</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+        <div class="hero-animation" id="hero-animation"></div>
+    </section>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="create.html">Create Capsule</a>
-    <a href="mycapsules.html">My Capsules</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="help.html">Help / FAQ</a>
-    <a href="profile.html">Profile</a>
-  </nav>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>How TimeVault Works</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card slide-up">
+                <div class="feature-icon">🔒</div>
+                <h3>Military-Grade Encryption</h3>
+                <p>All content is encrypted client-side before it even reaches our servers using AES-256 encryption.</p>
+            </div>
+            <div class="feature-card slide-up delay-1">
+                <div class="feature-icon">⏱️</div>
+                <h3>Precise Time Control</h3>
+                <p>Set exact unlock dates from days to decades in the future with millisecond precision.</p>
+            </div>
+            <div class="feature-card slide-up delay-2">
+                <div class="feature-icon">🔑</div>
+                <h3>Dual-Lock Security</h3>
+                <p>Requires both system-generated and user-created codes to open, preventing unauthorized access.</p>
+            </div>
+        </div>
+    </section>
 
-  <main>
-    <h1>Welcome to Time Capsule</h1>
-    <p>This is the home page. Navigate using the menu above.</p>
-  </main>
+    <!-- Mode Comparison -->
+    <section class="modes">
+        <div class="section-header">
+            <h2>Capsule Modes</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="mode-toggle">
+            <span class="mode-label">Permanent</span>
+            <label class="switch">
+                <input type="checkbox" id="modeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="mode-label">Frequent-Access</span>
+        </div>
+        <div class="mode-comparison">
+            <div class="mode-permanent">
+                <h3>Permanent Capsule</h3>
+                <ul>
+                    <li>🔒 Locked until exact unlock date</li>
+                    <li>🚫 No previews or edits allowed</li>
+                    <li>🛡️ Highest security level</li>
+                    <li>⚡ Emergency recovery option</li>
+                </ul>
+                <div class="mode-animation" id="permanent-animation"></div>
+            </div>
+            <div class="mode-frequent">
+                <h3>Frequent-Access Capsule</h3>
+                <ul>
+                    <li>🔓 View and edit until unlock date</li>
+                    <li>🔄 Make changes anytime</li>
+                    <li>👁️ Preview content before final lock</li>
+                    <li>⏳ Converts to permanent after unlock</li>
+                </ul>
+                <div class="mode-animation" id="frequent-animation"></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>Trusted By Thousands</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card active fade-in">
+                <div class="testimonial-content">
+                    <p>"I used TimeVault to send my future self a message on my 30th birthday. The experience of unlocking it was magical and secure."</p>
+                    <div class="testimonial-author">
+                        <img src="assets/images/user1.jpg" alt="Sarah J.">
+                        <span>Sarah J.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-content">
+                    <p>"As a lawyer, I appreciate the security. I store sensitive case documents in Frequent-Access capsules until trial dates."</p>
+                    <div class="testimonial-author">
+                        <img src="assets/images/user2.jpg" alt="Michael T.">
+                        <span>Michael T.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-content">
+                    <p>"The dual-code system gives me peace of mind that my family memories will be safe until I want them revealed."</p>
+                    <div class="testimonial-author">
+                        <img src="assets/images/user3.jpg" alt="Emma R.">
+                        <span>Emma R.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev">❮</button>
+                <button class="carousel-next">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Secure Your Future?</h2>
+            <p>Join thousands of users protecting their most important memories and messages.</p>
+            <a href="register.html" class="btn-primary glow">Get Started - It's Free</a>
+        </div>
+        <div class="particles" id="particles-js"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">⏳</span>
+                    <span class="logo-text">TimeVault</span>
+                </div>
+                <p>Securing your future, one moment at a time.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create.html">Create Capsule</a></li>
+                    <li><a href="capsules.html">My Capsules</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="help.html">FAQ</a></li>
+                    <li><a href="help.html">Security</a></li>
+                    <li><a href="help.html">Contact</a></li>
+                    <li><a href="help.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 TimeVault. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/modeToggle.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
