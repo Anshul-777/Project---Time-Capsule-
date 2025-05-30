@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Time Capsule - Time Vault</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/create.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⏳</span>
+                <span class="logo-text">TimeVault</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create.html" class="active">Create Capsule</a></li>
+                <li><a href="capsules.html">My Capsules</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="profile.html" class="btn-login">Profile</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Creation Wizard -->
+    <div class="creation-wizard">
+        <div class="wizard-header">
+            <h1>Create New Time Capsule</h1>
+            <p>Follow these steps to securely store your content for the future</p>
+            
+            <div class="wizard-steps">
+                <div class="step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-title">Details</span>
+                </div>
+                <div class="step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-title">Content</span>
+                </div>
+                <div class="step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-title">Security</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wizard-content">
+            <!-- Step 1: Details -->
+            <div class="wizard-step active" id="step1">
+                <div class="step-content">
+                    <h2>Capsule Details</h2>
+                    <p>Provide basic information about your time capsule</p>
+                    
+                    <div class="form-group">
+                        <label for="capsule-title">Capsule Title</label>
+                        <input type="text" id="capsule-title" placeholder="e.g., Message to Future Me">
+                        <div class="input-border"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="capsule-description">Description (Optional)</label>
+                        <textarea id="capsule-description" rows="3" placeholder="What's this capsule about?"></textarea>
+                        <div class="input-border"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="capsule-mode">Capsule Mode</label>
+                            <select id="capsule-mode">
+                                <option value="permanent">Permanent (Locked until date)</option>
+                                <option value="frequent">Frequent-Access (Editable until date)</option>
+                            </select>
+                            <div class="input-border"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="unlock-date">Unlock Date</label>
+                            <input type="datetime-local" id="unlock-date">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn-secondary" disabled>Back</button>
+                        <button class="btn-primary next-step ripple">Next: Add Content</button>
+                    </div>
+                </div>
+                
+                <div class="step-preview">
+                    <div class="preview-card flip-in">
+                        <div class="preview-header">
+                            <h3 id="preview-title">New Capsule</h3>
+                            <div class="preview-mode" id="preview-mode">PERMANENT</div>
+                        </div>
+                        <div class="preview-body">
+                            <p id="preview-description">No description provided</p>
+                            <div class="preview-date">
+                                <i class="far fa-calendar-alt"></i>
+                                <span id="preview-date">Unlock date not set</span>
+                            </div>
+                        </div>
+                        <div class="preview-footer">
+                            <div class="capsule-status">
+                                <div class="status-dot"></div>
+                                <span>CREATING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 2: Content -->
+            <div class="wizard-step" id="step2">
+                <div class="step-content">
+                    <h2>Capsule Content</h2>
+                    <p>Add files, text, or media to your time capsule</p>
+                    
+                    <div class="content-options">
+                        <div class="option-tabs">
+                            <button class="tab-btn active" data-tab="text">Text</button>
+                            <button class="tab-btn" data-tab="files">Files</button>
+                            <button class="tab-btn" data-tab="media">Media</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="text-tab">
+                            <div class="text-editor">
+                                <textarea id="capsule-text" placeholder="Write your message here..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="files-tab">
+                            <div class="file-upload">
+                                <div class="upload-area" id="dropZone">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>Drag & Drop Files</h3>
+                                    <p>or click to browse</p>
+                                    <input type="file" id="fileInput" multiple>
+                                </div>
+                                <div class="file-list" id="fileList">
+                                    <!-- Files will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="media-tab">
+                            <div class="media-upload">
+                                <div class="media-options">
+                                    <button class="media-btn" id="recordAudio">
+                                        <i class="fas fa-microphone"></i>
+                                        Record Audio
+                                    </button>
+                                    <button class="media-btn" id="recordVideo">
+                                        <i class="fas fa-video"></i>
+                                        Record Video
+                                    </button>
+                                </div>
+                                <div class="media-preview" id="mediaPreview">
+                                    <!-- Media preview will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn-secondary prev-step ripple">Back</button>
+                        <button class="btn-primary next-step ripple">Next: Security</button>
+                    </div>
+                </div>
+                
+                <div class="step-preview">
+                    <div class="content-preview">
+                        <div class="preview-header">
+                            <h3>Content Preview</h3>
+                        </div>
+                        <div class="preview-body" id="contentPreview">
+                            <div class="empty-preview">
+                                <i class="far fa-file-alt"></i>
+                                <p>No content added yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 3: Security -->
+            <div class="wizard-step" id="step3">
+                <div class="step-content">
+                    <h2>Capsule Security</h2>
+                    <p>Set the access codes for your time capsule</p>
+                    
+                    <div class="security-info">
+                        <div class="info-card">
+                            <i class="fas fa-lock"></i>
+                            <p>All content is encrypted before upload and can only be decrypted with both codes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-codes">
+                        <div class="code-group">
+                            <label for="u-code">Your Passphrase (U-Code)</label>
+                            <div class="code-input">
+                                <input type="password" id="u-code" placeholder="Create a strong passphrase">
+                                <button class="toggle-visibility" data-target="u-code">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="strength-meter">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Weak</span>
+                            </div>
+                            <div class="input-border"></div>
+                            <div class="hints">
+                                <p>Must contain at least 12 characters with uppercase, lowercase, numbers, and symbols</p>
+                            </div>
+                        </div>
+                        
+                        <div class="code-group">
+                            <label for="u-code-confirm">Confirm U-Code</label>
+                            <div class="code-input">
+                                <input type="password" id="u-code-confirm" placeholder="Re-enter your passphrase">
+                                <button class="toggle-visibility" data-target="u-code-confirm">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="input-border"></div>
+                        </div>
+                        
+                        <div class="s-code-display">
+                            <div class="s-code-header">
+                                <h4>System Code (S-Code)</h4>
+                                <i class="fas fa-info-circle" title="This code will be shown only once. Save it securely."></i>
+                            </div>
+                            <div class="s-code-value" id="s-code-value">ABC-123-XYZ</div>
+                            <div class="s-code-actions">
+                                <button class="btn-copy" id="copySCode">
+                                    <i class="far fa-copy"></i> Copy
+                                </button>
+                                <button class="btn-download" id="downloadSCode">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                            <div class="s-code-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>You must save this code to access your capsule in the future!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn-secondary prev-step ripple">Back</button>
+                        <button class="btn-primary create-capsule ripple" id="createCapsuleBtn">
+                            <span class="btn-text">Create Time Capsule</span>
+                            <div class="btn-loader">
+                                <div class="loader-dot"></div>
+                                <div class="loader-dot"></div>
+                                <div class="loader-dot"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="step-preview">
+                    <div class="security-preview">
+                        <div class="preview-header">
+                            <h3>Security Summary</h3>
+                        </div>
+                        <div class="preview-body">
+                            <div class="security-item">
+                                <div class="security-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <div class="security-details">
+                                    <h4>Dual-Code Authentication</h4>
+                                    <p>Requires both S-Code and U-Code to open</p>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="security-details">
+                                    <h4>Client-Side Encryption</h4>
+                                    <p>Content encrypted before leaving your device</p>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-icon">
+                                    <i class="fas fa-fingerprint"></i>
+                                </div>
+                                <div class="security-details">
+                                    <h4>Zero-Knowledge Architecture</h4>
+                                    <p>We cannot access your content</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-container zoom-in">
+            <div class="modal-header">
+                <div class="success-animation" id="successAnimation"></div>
+                <h2>Time Capsule Created!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your time capsule has been securely encrypted and stored.</p>
+                <div class="modal-info">
+                    <div class="info-item">
+                        <span class="info-label">Capsule ID:</span>
+                        <span class="info-value" id="modalCapsuleId">TV-5X7-9B2-4F1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Unlock Date:</span>
+                        <span class="info-value" id="modalUnlockDate">January 1, 2030</span>
+                    </div>
+                </div>
+                <div class="modal-warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Remember to save your S-Code! You won't be able to access your capsule without it.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="viewCapsuleBtn">View Capsule</button>
+                <button class="btn-primary" id="createAnotherBtn">Create Another</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/createCapsule.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
